@@ -42,6 +42,18 @@ function yell(string) {
     }
     var c;
     c = a.join('');
+    console.log(c);
+    console.log('result for Array (a) push c: ' + a.push(c));
     return ('returned value is: ' + c);
 }
 console.log(yell('life is good!'));
+// console.log(push);
+var foo;                  // 'foo' is a declaration, it's global and gets hoisted
+function magic() {         // 'magic()' also gets hoisted to the top
+    var foo;              // here 'foo' is declared within 'magic()' and gets hoisted
+    foo = "hello world";  // we assign a value to our function scoped 'foo'
+    console.log(foo);     // we log it as 'hello world'
+}
+foo = "bar";              // here, we assign a value to the global 'foo'
+magic();                  // magic is called, the first console.log runs
+console.log(foo); 

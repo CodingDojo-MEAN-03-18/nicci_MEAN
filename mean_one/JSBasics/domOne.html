@@ -1,0 +1,32 @@
+<html>
+
+<body>
+    <h1>students</h1>
+    <div id="main1">
+        Hello World!
+        <div id = "main">
+            <ol>
+
+            </ol>
+        </div>
+    </div>
+    <script>
+
+        function appendList(arr, element, id){
+            for(var j=0; j<arr.length; j++){
+                let new_student = document.createElement(element); //create the li or element(li,h1-6, p...)
+                new_student.innerHTML = arr[j];
+                document.getElementById(id).appendChild(new_student);//append student
+            }            
+        };
+        let students = ['maya','ashton','oliver'];
+        let target_id = "main";
+        appendList(students, 'p', 'main'); //pass in array name, the element to be created ("p")mtarget_id become's the name of the div id, main
+
+        // let new_student = document.createElement('li');
+        // new_student.innerHTML = students;
+
+    </script>
+</body>
+
+</html>
