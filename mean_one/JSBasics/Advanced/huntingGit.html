@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>The Codingdojo Hunting Git</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="huntingGit.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // https://api.github.com/users/NicciTheNomad
+            $.get("https://api.github.com/users/NicciTheNomad", displayName)
+            // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+            function displayName(data) {
+                // console.log('data: ' + data);
+                // console.log('name: ' + data.name);
+                $('body').append('name: ' + data.name);
+                $('body').append('location: ' + data.location);
+            }
+            var promise = new Promise(function(resolve, reject){
+                if($.get("https://api.github.com/users/NicciTheNomad", displayName) === true ){
+                    resolve($('body').append('location: ' + data.location));
+                } else {
+                    reject(Error('broken - nnooooo....'));
+                }
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id='data'>
+
+    </div>
+</body>
+
+</html>

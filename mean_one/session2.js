@@ -1,32 +1,30 @@
-function personMaker(name, items){
-    const person = {
-        // name: name 
-        name
-    };
-    person.items = items;
-    person.take = 
-    console.log(person);
-    return person; //return person obj.
-}
-
-const nicci = personMaker('Nicci', ['sand', 'colones', 'shells']);
-const maya = personMaker('Maya', ['surfboard', 'sandals', 'helmet']);
-
-console.log(nicci.name); //dot notation means this is an object
-console.log(nicci.items);
-console.log(maya.name,maya.items);
-
-
-function take(item, target){
-    if (!target || !Array.isArray(target.items)) {
-        throw new Error('target must have an items array');
+//feb lecture
+function Person(name, items){
+    if(!(this instanceof Person)){
+        console.log('not an instance');
+        return new Person(name, items);
     }
-    for (let index = 0; index < target.items.length; index++){
-        if (target.items[index] === item){
-            console.log('item', target.items.splice(index,1));
-            return true;
+    this.name = name;
+    this.items = items;
+    // this.take = take;
+    Person.prototype.take = function take(item, target){
+        if (!target || !Array.isArray(target.items)) {
+            throw new Error('target must have an items array');
         }
-    }   
-return false;
+        for (let index = 0; index < target.items.length; index++){
+            if (target.items[index] === item){
+                target.items.splice(index,1);
+                this.items.push(item);
+                return true;
+            }
+        }   
+    return false;
+    };
+    Person.prototype.toString = function(){
+        return 'person:  ${ this.name }';
+    };   // return person; //return person obj.
 }
-take('sandals', maya);
+const nicci = new Person('nicci', ['sand','shells']);
+const maya = Person('maya',['helemet', 'surfboard','sandals']);
+nicci.take('sandals',maya);
+

@@ -40,7 +40,7 @@ function filter(array, callback){
         if(callback(array[index], index)){
             // console.log(typeof(array[index]));
             //below was results_array_filter
-            results_array_filter.push(callback(array[index],index));
+            results_array_filter.push(array[index]);
         }
     }
     //below was results_array_filter

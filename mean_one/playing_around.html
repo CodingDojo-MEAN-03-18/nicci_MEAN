@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            (function () {
+                var foo = 'Hello';
+                var bar = 'World!'
+                function baz() {
+                    return foo + ' ' + bar;
+                }
+                window.baz = baz; //Assign 'baz' to the global variable 'baz'...
+            })();
+            $('body').append('info: '+baz);
+            console.log('baz: '+ baz());
+            (function(a){
+                console.log(a === window);
+            })(window);
+            var myModule = angular.module('myModule', []);
+                // From this point on, we'll attach everything to 'myModule'
+
+            myModule.factory('HelloWorld', function ($timeout) {
+
+                var getMessages = function (callback) {
+                    $timeout(function () {
+                        callback(['Hello', 'world!']);
+                    }, 2000);
+                };
+
+                return {
+                    getMessages: getMessages
+                };
+
+            });
+
+
+        });
+    </script>
+    <title>playing around</title>
+</head>
+<body>
+    <div id='data' color = blue>
+    </div>
+    <button>click</button>
+    
+</body>
+</html>

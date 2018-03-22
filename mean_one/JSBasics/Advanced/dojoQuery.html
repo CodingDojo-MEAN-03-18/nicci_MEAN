@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Codingdojo Hunting Git</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="huntingGit.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        
+            // $Dojo is my immediate function - enclosing
+            (function $Dojo() {
+                const click_button = document.getElementById("click")
+                click_button.addEventListener('click', clickAction);
+                function clickAction(){
+                    alert('life is good!')
+                }
+                console.log("I'm an immediate function!");
+                const hover_button = document.getElementById("hover")
+                hover_button.addEventListener('mouseenter', hoverAction);
+                function hoverAction(){
+                    alert('learning is fun!')
+                }
+                return; // this will be an html element object with two methods
+            })();
+            // completion of nicci's immediate function
+
+            });
+
+
+        // })
+    </script>
+</head>
+<body>
+    <button id='click'>Click me</button>
+    <button id='hover'>Hover here</button>
+    <div id="message">
+        Hello World!
+    </div>
+    <script>
+        let message = "<h1>Look, I'm a dynamic header!</h1>";
+        document.getElementById("message").innerHTML = message;
+
+    </script>
+    
+</body>
+</html>
