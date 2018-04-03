@@ -8,9 +8,15 @@
         </h3>
         <h4>Email:
             <%= users[x].email %>
-        </h4>
+        </h4>     
+        <form action="/users/1">
+            <button id="<%= users[x].id %>">
+                ID: <%= users[x].id %>
+            </button>
+        </form>
         <hr>
         <% } %>
+    
 </body>
 
 </html>

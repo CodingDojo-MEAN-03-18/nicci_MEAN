@@ -1,20 +1,13 @@
 var express = require('express');
 var app = express();
-
-
-// app.HTTP_VERB('URL', function(req, res){});
-
-app.get('/', function(req, res){
-    res.send('<h1>hola!</h1>')
-});
+app.use(express.static(__dirname + "/static"));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 app.get('/', function (req, res){
     res.render('index', {title:'my express project'});
 });
 
-app.use(express.static(__dirname + "/static"));
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 app.get("/users", function (req, res) {
     // hard-coded user data
     var users_array = [
@@ -29,6 +22,11 @@ app.get("/users", function (req, res) {
 app.post('/users', function(req, res){
     console.log("POST DATA \n\n", req.body)
     res.redirect('/')
+});
+
+app.get("/users/:id", function(req, res){
+    console.log('The user id: ', req.params.id);
+    res.send('you requested id: ' + req.params.id);
 });
 
 var bodyParser = require('body-parser');
