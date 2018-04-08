@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <h1>Welcome to Quoting Dojo</h1>
+    <fieldset>
+        <form action="/quotes" method='post'>
+            <div>
+                <label for="">Name</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="textarea">Quote</label>
+                <textarea name="quote" cols="30" rows="10"></textarea>
+            </div>
+            <button>Add My Quote!</button>
+        </form>
+        <form action="/quotes"><button>Skip to Quotes!</button></form>
+        <!-- <button action='/quotes'>Skip to Quotes!</button> -->
+    </fieldset>
+    
+</body>
+</html>
