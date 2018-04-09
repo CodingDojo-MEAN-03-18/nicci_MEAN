@@ -30,6 +30,8 @@ const quoteSchema = new Schema({
         required: true,
         minlength: 10,
     },
+},{
+    timestamps: true,
 });
 
 const Quote = mongoose.model('Quote', quoteSchema);

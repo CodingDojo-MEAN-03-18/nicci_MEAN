@@ -13,22 +13,18 @@
             <thead>
                 <tr>
                     <th>
-
-                        <hr>
+                    
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <% for (const quote of quotes){
                     %>
-                    <tr>
+                    <tr><td>____________________________________<td></tr>
+                    <tr>         
                         <td><%= quote.quote %></td>
-                        <td><%= quote.name %> @ <%= quote.date %> |</td>
-                        <td><hr></td>
-
-                        <!-- <td><%= quote.quote %></td>
-                        <td><%= quote.name %> @ <%= quote.date %></td>
-                        <td><hr></td> -->
+                        <td><%= quote.name %> @ <%= quote.createdAt %></td>
+                        
                     </tr>
                 <% } %>
             </tbody>
