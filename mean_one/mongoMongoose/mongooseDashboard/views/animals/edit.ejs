@@ -11,18 +11,19 @@
 <body>
     <nav>
         <a href="/">Display Animal</a>
+        <a href="/animals/new">Add New Animal</a>
     </nav>
     <fieldset>
         <legend>Edit Animal</legend>
-        <form action="/animals/<%= animal.id %>" method='post'>
+        <form action="/animals/<%= animal._id %>/update" method='post'>
             <div>
                 <label for="">Name</label>
-                <input type="text" name='name' value='<%= animal.name%>'>
+                <input type="text" name='name' value='<%= animal.name %>'>
             </div>
             <div>
                 <label for="">Age</label>
                 <input type="number" name='age' value='
-                <%= animal.age%>'>
+                <%= animal.age %>'>
             </div>
             <div>
                 <label for="">Is Alive?</label>
@@ -34,7 +35,8 @@
                 <input type="radio" name='isEndangered' value='true'>True
                 <input type="radio" name='isEndangered' value='false'>False
             </div>
-            <input type="submit" value="Edit">
+            <!-- <input type="submit" value="Edit"> -->
+            <button>Submit</button>
         </form>
     </fieldset>
 

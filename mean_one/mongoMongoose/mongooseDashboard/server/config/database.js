@@ -6,7 +6,7 @@ const modelsPath = path.resolve('server', 'models');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:animals');
+mongoose.connect('mongodb://localhost/animals');
 mongoose.connection.on('connected', () => console.log('connected to mongodb'));
 
 fs.readdirSync(modelsPath).forEach(file => {

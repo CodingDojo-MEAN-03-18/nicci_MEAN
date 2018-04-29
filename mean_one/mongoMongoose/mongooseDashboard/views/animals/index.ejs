@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>authors</title>
+    <title>Animals</title>
 </head>
 
 <body>
     <nav>
-        <!-- <a href="/books">Books</a> -->
-        <a href="/mammals/new">Create Mammal</a>
+        <a href="/animals/new">Create Mammal</a>
     </nav>
     <main>
         <table>
@@ -28,18 +27,23 @@
                 <% for (const animal of animals) { %>
                     <tr>
                         <td>
-                            <%= animal.name%>
+                            <a href="/animals/<%= animal._id %>">
+                                <%= animal.name %>
+                            </a>
                         </td>
                         <td>
-                            <%= animal.age%>
+                            <%= animal.age %>
                         </td>
                         <td>
-                            <%= animal.isAlive%>
+                            <%= animal.isAlive %>
                         </td>
                         <td>
-                            <%= animal.isEndangered%>
+                            <%= animal.isEndangered %>
                         </td>
-                        <td>Future Actions</td>
+                        <td>Future Actions
+                            <a href="/animals/<%= animal._id %>/edit"><button>Edit</button></a>
+                            <a href="/animals/<%= animal._id %>/delete"><button>Delete</button></a>
+                        </td>
                     </tr>
                     <% } %>
             </tbody>
@@ -47,5 +51,4 @@
     </main>
 
 </body>
-
 </html>

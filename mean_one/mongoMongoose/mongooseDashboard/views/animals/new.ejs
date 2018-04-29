@@ -10,31 +10,31 @@
 
 <body>
     <nav>
-        <a href="/">Display Animal</a>
+        <a href="/animals">Display Animal</a>
     </nav>
     <fieldset>
-        <legend>Create Animal</legend>
+        <legend>New Animal</legend>
         <form action="/animals" method='post'>
             <div>
                 <label for="">Name</label>
-                <input type="text" name='name'>
+                <input type="text" name='name' required>
             </div>
             <div>
                 <label for="">Age</label>
-                <input type="number" name='age'>
+                <input type="number" name='age' required>
             </div>
             <div>
                 <label for="">Is Alive?</label>
-                <input type="radio" name='isAlive' value='true'>True
+                <input type="radio" name='isAlive' value='true' checked>True
                 <input type="radio" name='isAlive' value='false'>False
             </div>
             <div>
                 <label for="">Is Endangered?</label>
                 <input type="radio" name='isEndangered' value='true'>True
-                <input type="radio" name='isEndangered' value='false'>False
+                <input type="radio" name='isEndangered' value='false' checked>False
             </div>
-            <!-- <button>Submit</button> -->
-            <input type="submit" value="submit">
+            <button>Submit</button>
+            <!-- <input type="submit" value="submit"> -->
         </form>
     </fieldset>
 

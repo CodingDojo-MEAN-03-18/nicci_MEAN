@@ -5,40 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>authors</title>
+    <title>Books</title>
 </head>
 
 <body>
     <nav>
         <a href="/authors">Authors</a>
-        <a href="/books/new"> Create Book</a>
+        <a href="/books/new">New Book</a>
     </nav>
-    <main>
-        <h1>Books</h1>
-        <table>
-            <thead>
+    <h1>Books</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const book of books) { %>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <!-- <th>Pages</th>
-                    <th>Year</th>
-                    <th>Publisher</th> -->
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (const book of books) { %>
-                <tr>
-                    <td><%= book.title %></td>
-                    <td><%= book.author ? book.author.name : 'Unknown' %> </td>
-                    <!-- <td><%= book.pages %></td>
-                    <td><%= book.year %></td>
-                    <td><%= book.publisher %> </td> -->
-                    <td>Future Actions</td>
+                    <td>
+                        <%= book.title %>
+                    </td>
+                    <td>
+                        <%= book.author.name %>
+                    </td>
+                    <td>
+                        actions
+                    </td>
                 </tr>
                 <% } %>
-            </tbody>
-        </table>
-    </main>
-</body> 
-</html>    
+        </tbody>
+    </table>
+</body>
+
+</html>

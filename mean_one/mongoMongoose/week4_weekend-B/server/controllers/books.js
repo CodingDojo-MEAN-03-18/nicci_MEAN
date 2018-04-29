@@ -11,23 +11,29 @@ module.exports = {
             }).catch(console.log);
     },
     show(request, response) {
-        // Author.findById(request.params.id)
-        //     .populate('books')
-        //     .then(author => {
-        //         console.log(author);
-        //         response.render('authors/show', { author })
-        //     })
-        //     .catch(console.log);
+
+    },
+    create(request, response) {
+        Book.create(request.body)
+            .then(book => {
+                console.log(book);
+
+                return Author.findById(book.author)
+                    .then(author => {
+                        author.books.push(book);
+
+                        return author.save();
+                    });
+
+            })
+            .then(() => response.redirect('/books'))
+            .catch(console.log);
+    },
+    update(request, response) {
+
     },
     edit(request, response) {
-        // Author.findById(request.params.id)
-        //     .populate('books')
-        //     .then(author => {
-        //         console.log(author);
 
-        //         response.render('authors/edit', {author})
-        //     })
-        //     .catch(console.log);
     },
     new(request, response) {
         Author.find({})
@@ -36,23 +42,7 @@ module.exports = {
             })
             .catch(console.log);
     },
-    update(request, response) {
-
-    },
-    create(request, response) {
-        Book.create(request.body)
-            .then(book => {
-                console.log(book);
-                return Author.findById(book.author)
-                    .then(author => {
-                        author.books.push(book);
-                        return author.save();
-                    });
-        })
-        .then(() => response.redirect('/books'))
-        .catch(console.log);
-    },
-    destory(request, response) {
+    destroy(request, response) {
 
     },
 };

@@ -5,34 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>authors</title>
+    <title>New Author</title>
 </head>
 
 <body>
     <nav>
-        <a href="/books">Books</a>
-        <a href="/authors"> Authors</a>
+        <a href="/authors">Back</a>
     </nav>
+
     <fieldset>
-        <legend>Create Author</legend>
+        <legend>New Author</legend>
+
         <form action="/authors" method='post'>
             <div>
                 <label for="">Name</label>
-                <input type="text" name='name'>
+                <input type="text" name='name' required>
             </div>
             <div>
                 <label for="">Age</label>
-                <input type="number" name='age'>
+                <input type="number" name='age' required>
             </div>
             <div>
-                <label for="">Is Alive?</label>
-                <input type="radio" name='isAlive' value='true'>True
+                <label for="">Alive?</label>
+                <input type="radio" name='isAlive' value='true' checked>True
                 <input type="radio" name='isAlive' value='false'>False
             </div>
+
             <button>Submit</button>
         </form>
     </fieldset>
-
 </body>
 
 </html>
