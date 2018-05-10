@@ -1,5 +1,5 @@
-<fieldset disabled="disabled">
-  <h1>Dojo Mail</h1>
+<fieldset>
+  <h1>{{ title }}</h1>
   <table>
     <tr>
       <th>Email   </th>
@@ -7,12 +7,19 @@
       <th>   Subject   </th>
       <th>   Content   </th>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor='let email of emails'>
+      <td>{{ email.email | lowercase}}</td>
+      <td> <span *ngIf ='email.importance'>High</span><span *ngIf='!email.importance'>Low</span></td>
+      <td>{{ email.subject | uppercase }}</td>
+      <td>{{ email.content }}</td>
     </tr>
   </table>
 
 </fieldset>
+<span [ngStyle]="{
+  'background-color': 'green',
+  'font-weight': 'bold'
+}">I will display &#8352;</span>
+ 
+
+<input type="text" ng-pattern="/^[a-zA-Z0-9]*$/">
