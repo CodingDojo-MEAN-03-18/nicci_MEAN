@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>EJS express images</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="cats.js"></script> -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('img').click(function(){
+                var id = ($(this).attr('id'));
+                var name = ($(this).attr('name'));
+                var data = ($(this).attr('data'));
+                var desc = ($(this).attr('data-desc'));
+                var getInput = {
+                    name: name,
+                    id: id,
+                    data: data,
+                    desc: desc
+                };
+                localStorage.setItem("storageName", getInput);
+                // window.onload = function () {
+                //     var getInput = prompt("Hey type something here: ");
+                //     localStorage.setItem("storageName", getInput);
+                // }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <header>Family</header>
+        <a href="http://localhost:8000/photo">
+        <img id='may' name='Maya' data='2017' data-desc='inspecting ocean life' src='images/may.jpg' alt='may beach' style="width:300px;height:300px;">
+        </a>
+        <a href="http://localhost:8000/nic">
+        <img id='nic' data-name='Nicci' data-year='2017' data-desc='climbing walls (like a kid)' src='images/nic.jpg' alt='nic climb' style="width:300px;height:300px;">
+        </a>
+        <a href="http://localhost:8000/yoga">
+        <img id='yoga' data-name='Maya, Ashton and Oliver' data-desc='yogi child life'src='images/yoga_kids.jpg' alt='yoga kids' style="width:400px;height:400px;">
+        </a>   
+    </fieldset>
+</body>
+    
+</html>

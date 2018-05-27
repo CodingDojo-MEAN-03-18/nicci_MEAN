@@ -1,0 +1,15 @@
+*{
+
+}
+.red{
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    border: 3px solid darkgrey;
+}
+.green{
+    background-color: lime;
+    width: 300px;
+    height: 300px;
+    border: 3px solid darkgrey;
+}

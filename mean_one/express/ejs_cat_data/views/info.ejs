@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>EJS express images</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.onload = alert(localStorage.getItem("storageName"));
+            // window.onload = alert(localStorage.getItem(getInput.name));
+            var obj = localStorage.getItem("storageName");
+        });
+    </script>
+</head>
+<fieldset>
+    <header>
+        Photo Details
+    </header>
+
+    <p>
+        <h4>Name of Person in Photo: <%= getInput.name %></h4>
+        <h4>Year Photo Taken: <%= getInput.year %></h4>
+        <h4>Photo Description: <%= getInput.desc %></h4>      
+    </p>
+
+</fieldset>
+</html>
