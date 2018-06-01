@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+    <script src="https://cdn.rawgit.com/jackmoore/colorbox/master/jquery.colorbox-min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jackmoore/colorbox/master/example1/colorbox.css" />
+    <title>Display Users</title>
+    <script>
+        $(document).ready(function () {
+            var socket = io.connect(); 
+                setTimeout(function(){
+                    $.colorbox({
+                        html: "<form action='/result' method='POST'>Please enter name: <input type='text' name='name'><input class='button' type='submit' value='SUBMIT'></form>",
+                        className: "newUser",
+                        width: 500,
+                        height: 200
+                    });
+                    console.log('name');
+                }, 0);      
+                // console.log(name);
+            socket.on('newUser', function (user) {
+                $('#user').text(user);
+            });
+
+            $('#epic').click(function () {
+                socket.emit('buttonClicked');
+            });
+        });
+    </script>
+</head>
+<body class="container">
+    <div class="main">
+        <div id='user'>
+    
+        </div>
+        <fieldset>
+            <p>Please Enter Your Name to Enter Site.</p>
+            <form action="/" method='post'>
+                NAME: <input type="text" name='name'>
+                <input class='button' type='submit' value='SUBMIT'> || <input class='cancel' type='submit' value='CANCEL'>
+            </form>
+        </fieldset>
+        
+    </div>
+    
+</body>
+</html>

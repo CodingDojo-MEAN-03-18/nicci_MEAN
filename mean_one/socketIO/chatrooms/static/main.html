@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel='text/html' href='client/style.css' />
+    <title>Display Users</title>
+    <script>
+        $(document).ready(function () {
+            var socket = io.connect();
+            socket.on('newUser', function (user) {
+                $('#user').text(user);
+            });
+
+            $('#epic').click(function () {
+                socket.emit('buttonClicked');
+            });
+
+            $('#reset').click(function () {
+                socket.emit('resetCount');
+            });
+        });
+    </script>
+</head>
+
+<body class='container'>
+    <div class="main">
+
+        <h1>Great Button Game</h1>
+        <h2>The button has been pressed <span class="" id="number">0</span> times.</h2>
+        <button>Push the Epic Button</button>
+        <div>
+            <p>push the button to update the count</p>
+            <button class='btn btn-primary' id='epic'>hit me</button>
+        </div>
+        <div>
+            <button class='btn.btn-warning pull-right' id='reset'>Reset</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
