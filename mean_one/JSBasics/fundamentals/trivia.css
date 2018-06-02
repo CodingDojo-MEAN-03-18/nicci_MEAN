@@ -1,0 +1,51 @@
+*
+{
+
+}
+p{
+    font-size:x-small;
+}
+.container{
+    width: 940px;
+    height: 800px;
+    background-color: lightblue;
+    padding: 5px;
+    margin: 5px;
+}
+h2, h3{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+h4{
+    text-align: center;
+    color: grey;
+    vertical-align: middle;
+    background-color: lightgoldenrodyellow;
+    display: inline-block;
+    padding: 15px 50px;
+    margin: 5px;
+}
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.zero, .one, .two, .three, .four, .five, .six, .seven, .eight{
+    width: 200px;
+    height: 200px;
+    color: steelblue;
+    padding: 10px;
+    margin: 5px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: lightyellow;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
