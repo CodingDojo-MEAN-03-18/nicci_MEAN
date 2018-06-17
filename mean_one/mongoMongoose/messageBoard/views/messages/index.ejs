@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+</head>
+
+<body>
+    <nav>
+        <p>Leave A Message</p>
+    </nav>
+    <fieldset>
+        <legend>Create Message</legend>
+        <form action="/messages" method="post">
+            <div>
+                <label for="">Name</label>
+                <input type="text" name='name'>
+            </div>
+            <div>
+                <label for="">Message</label>
+                <input type="text" name="message">
+            </div>
+            <button>Post Message</button>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Messages / Comments Posted</legend>
+        <table>
+            <tbody>
+                <% for (const message of messages) { %>
+                    <tr>
+                        <td><%= message.name %></td>
+                        <td><%= message.message %></td>
+                        
+                        <td>
+                            <form action="/messages" method="post">
+                                <div>
+                                    <label for="">Name</label>
+                                    <input type="text" name='name'>
+                                </div>
+                                <div>
+                                    <label for="">Comment</label>
+                                    <input type="text" name="comment">
+                                </div>
+                                <button>Post Comment</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </fieldset>
+
+</body>
+
+</html>
